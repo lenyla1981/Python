@@ -39,11 +39,11 @@ def work_with_phonebook():
             print(phone_book)
 
 
-#Функция для добавления нового контакта в телефонную книгу
+#Функция для добавления нового контакта в телефонный справочник
 def add_contact():
     name = input("Введите имя контакта: ")
     number = input("Введите номер телефона: ")
-    phonebook[name] = {"номер": number, "адрес": address}
+    phonebook[name] = {"номер": number}
     print("Контакт успешно добавлен")
 
 # Функция для изменения данных контакта
@@ -51,13 +51,12 @@ def edit_contact():
     name = input("Введите имя или фамилию контакта: ")
     if name in phonebook:
         number = input("Введите новый номер телефона: ")
-        address = input("Введите новый адрес: ")
-        phonebook[name] = {"номер": number, "адрес": address}
+        phonebook[name] = {"номер": number}
         print("Контакт успешно изменен")
     else:
         print("Контакт не найден")
 
-# Функция для удаления контакта из телефонной книги
+# Функция для удаления контакта из телефонный справочник
 def delete_contact():
     name = input("Введите имя или фамилию контакта: ")
     if name in phonebook:
@@ -66,7 +65,7 @@ def delete_contact():
     else:
         print("Контакт не найден")
 
-# Главная функция для работы с телефонной книгой
+# Главная функция для работы с телефонным справочником
 def phonebook_app():
     while True:
         action = input("\nВыберите действие:\n1 - Добавить контакт\n2 - Изменить контакт\n3 - Удалить контакт\n4 - Вывести список контактов\n5 - Выйти из приложения\n")
@@ -78,13 +77,12 @@ def phonebook_app():
             delete_contact()
         elif action == "4":
             for name, data in phonebook.items():
-                print("{0}: {1}, {2}".format(name, data["номер"], data["адрес"]))
+                print("{0}: {1}, {2}".format(name, data["номер"]))
         elif action == "5":
             print("До свидания!")
             break
         else:
-            print("Некорректный ввод. Попробуйте снова.")
-
+            print("Некорректный ввод. Попробуйте снова")
 phonebook_app()
 
 
